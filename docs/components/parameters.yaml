@@ -1,0 +1,8 @@
+id:
+  name: id
+  in: path
+  required: true
+  schema:
+    type: integer
+    minimum: 0
+  description: Unique identifier for the resource

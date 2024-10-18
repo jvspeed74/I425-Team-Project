@@ -1,0 +1,29 @@
+type: object
+properties:
+  id:
+    type: integer
+    format: int32
+    minimum: 0
+    maximum: 65535
+    description: Unique identifier for the car
+    readOnly: true
+    example: 1
+  team_id:
+    type: integer
+    format: int32
+    minimum: 0
+    maximum: 65535
+    nullable: true
+    description: Team ID associated with the car (nullable)
+    example: 1
+  model:
+    type: string
+    maxLength: 100
+    description: Car model name
+    example: 'Ferrari 488 GT3'
+  year:
+    type: string
+    format: year
+    pattern: '^\d{4}$'
+    description: Year of the car model
+    example: '2018'

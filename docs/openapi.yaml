@@ -1,0 +1,29 @@
+openapi: 3.0.0
+info:
+  title: F1 Management API
+  description: API documentation for the F1 database based on table schemas.
+  version: 1.0.0
+servers:
+  - url: http://localhost:8080
+    description: Local server
+paths:
+  /cars:
+    $ref: './paths/cars.yaml'
+  /cars/{id}:
+    $ref: './paths/cars/{id}.yaml'
+  /drivers:
+    $ref: './paths/drivers.yaml'
+  /drivers/{id}:
+    $ref: './paths/drivers/{id}.yaml'
+  /events:
+    $ref: './paths/events.yaml'
+  /events/{id}:
+    $ref: './paths/events/{id}.yaml'
+  /teams:
+    $ref: './paths/teams.yaml'
+  /teams/{id}:
+    $ref: './paths/teams/{id}.yaml'
+  /tracks:
+    $ref: './paths/tracks.yaml'
+  /tracks/{id}:
+    $ref: './paths/tracks/{id}.yaml'

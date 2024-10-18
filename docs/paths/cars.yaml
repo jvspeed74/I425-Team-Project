@@ -1,0 +1,41 @@
+get:
+  summary: Get a list of all cars
+  tags:
+    - Cars
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '../components/schemas/car.yaml'
+    '500':
+      $ref: '../components/responses.yaml#/500'
+post:
+  summary: Create a new car
+  tags:
+    - Cars
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          allOf:
+            - $ref: '../components/schemas/car.yaml'
+          required:
+            - team_id
+            - model
+            - year
+  responses:
+    '201':
+      description: Successfully created a new car
+      content:
+        application/json:
+          schema:
+            $ref: '../components/schemas/car.yaml'
+    '400':
+      $ref: '../components/responses.yaml#/400'
+    '500':
+      $ref: '../components/responses.yaml#/500'

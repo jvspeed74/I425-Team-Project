@@ -1,0 +1,44 @@
+get:
+  summary: Get a list of all drivers
+  description: This endpoint allows you to get a list of all drivers in the system.
+  tags:
+    - Drivers
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '../components/schemas/driver.yaml'
+    '500':
+      $ref: '../components/responses.yaml#/500'
+post:
+  summary: Create a new driver
+  description: This endpoint allows you to create a new driver in the system.
+  tags:
+    - Drivers
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          allOf:
+            - $ref: '../components/schemas/driver.yaml'
+          required:
+            - first_name
+            - last_name
+            - birthday
+            - driver_number
+  responses:
+    '201':
+      description: Successfully created a new driver
+      content:
+        application/json:
+          schema:
+            $ref: '../components/schemas/driver.yaml'
+    '400':
+      $ref: '../components/responses.yaml#/400'
+    '500':
+      $ref: '../components/responses.yaml#/500'

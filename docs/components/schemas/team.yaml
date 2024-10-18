@@ -1,0 +1,29 @@
+type: object
+properties:
+  id:
+    type: integer
+    format: int32
+    minimum: 0
+    maximum: 65535
+    readOnly: true
+    example: 1
+  official_name:
+    type: string
+    nullable: false
+    maxLength: 100
+    example: 'Oracle Red Bull Racing'
+  short_name:
+    type: string
+    nullable: false
+    maxLength: 50
+    example: 'Red Bull'
+  headquarters:
+    type: string
+    nullable: false
+    maxLength: 100
+    example: 'Milton Keynes, United Kingdom'
+  team_principal:
+    type: string
+    nullable: false
+    maxLength: 50
+    example: 'Christian Horner'

@@ -1,0 +1,36 @@
+type: object
+properties:
+  id:
+    type: integer
+    format: int32
+    minimum: 0
+    maximum: 65535
+    example: 1
+    readOnly: true
+  title:
+    type: string
+    nullable: false
+    maxLength: 100
+    example: 'Formula 1 Grand Prix de Monaco 2024'
+  scheduled_date:
+    type: string
+    format: date-time
+    nullable: true
+    default: null
+    example: '2024-05-26T18:00:00Z'
+  track_id:
+    type: integer
+    format: int32
+    minimum: 0
+    maximum: 65535
+    example: 1
+  status:
+    type: string
+    enum:
+      - Planned
+      - Ongoing
+      - Completed
+      - Cancelled
+    example: 'Planned'
+    default: 'Planned'
+

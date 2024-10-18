@@ -1,0 +1,59 @@
+get:
+  summary: Get car by ID
+  description: This endpoint returns a car record matching the provided ID
+  tags:
+    - Cars
+  parameters:
+    - $ref: '../../components/parameters.yaml#/id'
+  responses:
+    '200':
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            $ref: '../../components/schemas/car.yaml'
+    '404':
+      $ref: '../../components/responses.yaml#/404'
+    '500':
+      $ref: '../../components/responses.yaml#/500'
+patch:
+  summary: Update fields for a car
+  description: This endpoint updates a car record in the system.
+  tags:
+    - Cars
+  parameters:
+    - $ref: '../../components/parameters.yaml#/id'
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          allOf:
+            - $ref: '../../components/schemas/car.yaml'
+  responses:
+    '200':
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            $ref: '../../components/schemas/car.yaml'
+    '400':
+      $ref: '../../components/responses.yaml#/400'
+    '404':
+      $ref: '../../components/responses.yaml#/404'
+    '500':
+      $ref: '../../components/responses.yaml#/500'
+delete:
+  summary: Delete a car
+  description: This endpoint deletes a car record from the system.
+  tags:
+    - Cars
+  parameters:
+    - $ref: '../../components/parameters.yaml#/id'
+  responses:
+    '204':
+      description: Car successfully deleted
+    '404':
+      $ref: '../../components/responses.yaml#/404'
+    '500':
+      $ref: '../../components/responses.yaml#/500'

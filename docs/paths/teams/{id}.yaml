@@ -1,0 +1,55 @@
+get:
+  summary: Get team by ID
+  tags:
+    - Teams
+  parameters:
+    - $ref: '../../components/parameters.yaml#/id'
+  responses:
+    '200':
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            $ref: '../../components/schemas/team.yaml'
+    '404':
+      $ref: '../../components/responses.yaml#/404'
+    '500':
+      $ref: '../../components/responses.yaml#/500'
+patch:
+  summary: Update fields for a team
+  tags:
+    - Teams
+  parameters:
+    - $ref: '../../components/parameters.yaml#/id'
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../../components/schemas/team.yaml'
+  responses:
+    '200':
+      description: Team successfully updated
+      content:
+        application/json:
+          schema:
+            $ref: '../../components/schemas/team.yaml'
+    '400':
+      $ref: '../../components/responses.yaml#/400'
+    '404':
+      $ref: '../../components/responses.yaml#/404'
+    '500':
+      $ref: '../../components/responses.yaml#/500'
+delete:
+  summary: Delete a team
+  tags:
+    - Teams
+  parameters:
+    - $ref: '../../components/parameters.yaml#/id'
+  responses:
+    '204':
+      description: Team successfully deleted
+    '404':
+      $ref: '../../components/responses.yaml#/404'
+    '500':
+      $ref: '../../components/responses.yaml#/500'

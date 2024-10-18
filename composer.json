@@ -38,12 +38,13 @@
     "phpunit/phpunit": "11.4.1",
     "phpstan/phpstan": "^1.0",
     "fakerphp/faker": "^1.0",
-    "mockery/mockery": "^1.0",
-    "phpstan/phpstan-phpunit": "^1.4",
+    "mockery/mockery": "^1.6",
     "friendsofphp/php-cs-fixer": "^3.64"
   },
   "scripts": {
-    "php-cs-fixer": "php-cs-fixer --rules=@PER-CS2.0",
-    "phpstan": "vendor/bin/phpstan -c phpstan.neon"
+    "format": "vendor/bin/php-cs-fixer fix . --rules=@PER-CS2.0",
+    "phpstan": "vendor/bin/phpstan",
+    "start": "php -S localhost:8080 -t public",
+    "test": "phpunit"
   }
 }

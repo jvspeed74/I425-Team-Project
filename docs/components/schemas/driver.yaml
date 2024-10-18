@@ -1,0 +1,77 @@
+type: object
+properties:
+  id:
+    type: integer
+    format: int32
+    minimum: 0
+    maximum: 65535
+    description: Unique identifier for the driver
+    readOnly: true
+    example: 1
+  first_name:
+    type: string
+    maxLength: 50
+    description: Driver's first name
+    example: 'Lewis'
+  last_name:
+    type: string
+    maxLength: 50
+    description: Driver's last name
+    example: 'Hamilton'
+  team_id:
+    type: integer
+    format: int32
+    minimum: 0
+    maximum: 65535
+    nullable: true
+    description: Team ID the driver is associated with (nullable)
+    example: 1
+  nationality_id:
+    type: integer
+    format: int32
+    minimum: 0
+    nullable: true
+    description: Nationality ID of the driver (nullable)
+    example: 44
+  birthday:
+    type: string
+    format: date
+    description: Driver's date of birth
+    example: '1985-01-07'
+  driver_number:
+    type: integer
+    format: int32
+    description: Driver's racing number
+    example: 44
+  career_points:
+    type: number
+    format: double
+    minimum: 0.00
+    maximum: 99999999.99
+    description: Total career points of the driver
+    default: 0.00
+    example: 4135.00
+  career_wins:
+    type: integer
+    format: int32
+    minimum: 0
+    maximum: 65535
+    description: Total number of career wins
+    default: 0
+    example: 103
+  career_podiums:
+    type: integer
+    format: int32
+    minimum: 0
+    maximum: 65535
+    description: Total number of career podiums
+    default: 0
+    example: 182
+  championships:
+    type: integer
+    format: int32
+    minimum: 0
+    maximum: 65535
+    description: Number of championships won by the driver
+    default: 0
+    example: 7

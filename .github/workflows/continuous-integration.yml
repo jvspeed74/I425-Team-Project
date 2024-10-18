@@ -3,13 +3,15 @@ name: Continuous Integration
 on:
   pull_request:
   push:
-
+    branches-ignore:
+      - docs
+      - docs/**
 permissions:
   contents: read
 
 jobs:
-  build-composer:
-    name: "Build Composer Cache"
+  build:
+    name: "Build"
     runs-on: ubuntu-24.04
 
     steps:
@@ -31,67 +33,18 @@ jobs:
     - name: Install dependencies with Composer
       run: composer install --prefer-dist --no-progress
 
-  coding-standards:
-    name: "Verify Coding Standards"
-    needs: build-composer
-    runs-on: ubuntu-24.04
-
-    steps:
-    - name: Checkout
-      uses: actions/checkout@v4
-
-    - name: Restore Composer cache
-      uses: actions/cache@v4
-      with:
-        path: vendor
-        key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
-        restore-keys: |
-          ${{ runner.os }}-php-
-
-    - name: Install Composer dependencies (Skip if already restored)
-      run: composer install --prefer-dist --no-progress
-      if: steps.composer-cache.outputs.cache-hit != 'true'
-
     - name: Install PHP with extensions
       uses: shivammathur/setup-php@2.31.1
       with:
         php-version: '8.2'
-        tools: phpstan, cs2pr, php-cs-fixer
-
-    - name: Run PHPStan for static analysis
-      run: phpstan analyse
-
-    - name: Check for PER-CS2.0 Coding Standard Discrepancies
-      run: php-cs-fixer check src --rules=@PER-CS2.0 --format=checkstyle | cs2pr
-
-  tests:
-    name: "Run PHP Tests"
-    needs: build-composer
-    runs-on: ubuntu-24.04
-
-    steps:
-    - name: Checkout
-      uses: actions/checkout@v4
-
-    - name: Restore Composer cache
-      uses: actions/cache@v4
-      with:
-        path: vendor
-        key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
-        restore-keys: |
-          ${{ runner.os }}-php-
-
-    - name: Install Composer dependencies (Skip if already restored)
-      run: composer install --prefer-dist --no-progress
-      if: steps.composer-cache.outputs.cache-hit != 'true'
-    
-    - name: Install PHP with extensions
-      uses: shivammathur/setup-php@2.31.1
-      with:
-        php-version: '8.2'
-        tools: phpunit, cs2pr
+        tools: phpstan, cs2pr, php-cs-fixer, phpunit
         coverage: xdebug
 
+    - name: Code Quality (PHPStan)
+      run: phpstan analyse
+
+    - name: Code Standards (PER-CS2.0)
+      run: php-cs-fixer check src --rules=@PER-CS2.0 --format=checkstyle | cs2pr
 
     - name: Setup problem matchers for PHPUnit
       run: echo "::add-matcher::${{ runner.tool_cache }}/phpunit.json"

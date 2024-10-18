@@ -1,0 +1,55 @@
+get:
+  summary: Get a track by ID
+  tags:
+    - Tracks
+  parameters:
+    - $ref: '../../components/parameters.yaml#/id'
+  responses:
+    '200':
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            $ref: '../../components/schemas/track.yaml'
+    '404':
+      $ref: '../../components/responses.yaml#/404'
+    '500':
+      $ref: '../../components/responses.yaml#/500'
+patch:
+  summary: Update fields for a track
+  tags:
+    - Tracks
+  parameters:
+    - $ref: '../../components/parameters.yaml#/id'
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../../components/schemas/track.yaml'
+  responses:
+    '200':
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            $ref: '../../components/schemas/track.yaml'
+    '400':
+      $ref: '../../components/responses.yaml#/400'
+    '404':
+      $ref: '../../components/responses.yaml#/404'
+    '500':
+      $ref: '../../components/responses.yaml#/500'
+delete:
+  summary: Delete a track
+  tags:
+    - Tracks
+  parameters:
+    - $ref: '../../components/parameters.yaml#/id'
+  responses:
+    '204':
+      description: Track successfully deleted
+    '404':
+      $ref: '../../components/responses.yaml#/404'
+    '500':
+      $ref: '../../components/responses.yaml#/500'
