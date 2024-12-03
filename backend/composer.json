@@ -46,9 +46,9 @@
     "lint": "vendor/bin/phpstan analyze -c phpstan.neon",
     "start": [
       "Composer\\Config::disableProcessTimeout",
-      "php -S localhost:8080 -t api"
+      "php -S localhost:8080 -t public"
     ],
-    "test": "pest"
+    "test": "vendor/bin/pest"
   },
   "config": {
     "allow-plugins": {

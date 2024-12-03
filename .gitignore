@@ -78,10 +78,10 @@ fabric.properties
 .idea/caches/build_file_checksums.ser
 
 # Composer Vendor Directory
-/vendor
+backend/vendor
 
 # Directory for storing logs
-/logs
+/backend/logs
 
 # Environment file
 .env

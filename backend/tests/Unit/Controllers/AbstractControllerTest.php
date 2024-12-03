@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Tests\Unit\Controllers;
+namespace backend\tests\Unit\Controllers;
 
 use App\Contracts\AbstractController;
 use App\Contracts\AbstractRepository;

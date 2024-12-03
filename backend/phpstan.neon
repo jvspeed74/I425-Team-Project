@@ -4,7 +4,7 @@ includes:
 parameters:
     level: 4
     paths:
-        - src
+        - api
         - config
         - public
     excludePaths:
