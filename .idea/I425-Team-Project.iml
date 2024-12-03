@@ -9,9 +9,9 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor" />
       <excludeFolder url="file://$MODULE_DIR$/.github" />
       <excludeFolder url="file://$MODULE_DIR$/.postman" />
-      <excludeFolder url="file://$MODULE_DIR$/postman" />
       <excludeFolder url="file://$MODULE_DIR$/.phpunit.cache" />
       <excludeFolder url="file://$MODULE_DIR$/.php-cs-fixer" />
+      <excludeFolder url="file://$MODULE_DIR$/backend/.postman" />
       <excludeFolder url="file://$MODULE_DIR$/backend/vendor" />
       <excludeFolder url="file://$MODULE_DIR$/backend/vendor/brianium/paratest" />
       <excludeFolder url="file://$MODULE_DIR$/backend/vendor/brick/math" />

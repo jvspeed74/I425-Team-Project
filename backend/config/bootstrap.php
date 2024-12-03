@@ -10,8 +10,6 @@ use Illuminate\Database\Capsule\Manager;
 use Psr\Container\ContainerInterface;
 use Psr\Log\LoggerInterface;
 
-
-
 /**
  * Create a new DI\ContainerBuilder instance and configure it with the container settings.
  *
@@ -57,5 +55,3 @@ $routesConfig = require __DIR__ . '/../config/routes.php';
 $routesConfig($app);
 // Run app
 $app->run();
-
-

@@ -87,5 +87,5 @@ backend/vendor
 .env
 
 # Code Quality Caches
-.phpunit.cache
-/.php-cs-fixer
+backend/.php-cs-fixer
+backend/.phpunit.cache

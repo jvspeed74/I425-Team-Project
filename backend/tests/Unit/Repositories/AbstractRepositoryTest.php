@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace backend\tests\Unit\Repositories;
+namespace Unit\Repositories;
 
 use App\Contracts\AbstractRepository;
 use Illuminate\Database\Eloquent\Collection;
