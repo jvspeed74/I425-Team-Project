@@ -7,7 +7,7 @@ $finder = (new PhpCsFixer\Finder())
         [
             __DIR__ . '/config',
             __DIR__ . '/public',
-            __DIR__ . '/src',
+            __DIR__ . '/api',
             __DIR__ . '/tests',
             __DIR__ . '/templates',
         ],
