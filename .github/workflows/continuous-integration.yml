@@ -147,7 +147,7 @@ jobs:
         run: npm install -g newman
 
       - name: Run Postman tests
-        run: newman run "./postman/collections/F1 Management API.json" --env-var baseUrl=http://127.0.0.1:8080
+        run: newman run ".postman/collections/F1 Management API.json" --env-var baseUrl=http://127.0.0.1:8080
 
       - name: Display PHP server logs
         if: always()
