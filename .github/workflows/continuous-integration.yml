@@ -131,8 +131,7 @@ jobs:
           mysql -h 127.0.0.1 -u root < f1_db.sql
 
       - name: Start PHP server
-        run: php -S 127.0.0.1:8080 -t public > php_server.log 2>&1 &
-        working-directory: ./ # Path to the public folder from the project root
+        run: php -S 127.0.0.1:8080 -t public > logs/php_server.log 2>&1 &
 
       - name: Cache node_modules for Newman
         id: node-cache
@@ -149,15 +148,12 @@ jobs:
       - name: Run Postman tests
         run: newman run ".postman/collections/F1 Management API.json" --env-var baseUrl=http://127.0.0.1:8080
 
-      - name: Display PHP server logs
+      - name: Display PHP logs
         if: always()
         run: |
-          cat php_server.log
-          if [ -f logs/app.log ]; then
-            cat logs/app.log
-          else
-            echo "logs/app.log does not exist."
-          fi
+          for file in logs/*; do
+            cat "$file"
+          done
 
       - name: Shutdown PHP server
         if: always()
