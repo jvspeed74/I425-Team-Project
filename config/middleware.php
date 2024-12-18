@@ -6,6 +6,14 @@ use Psr\Log\LoggerInterface;
 use Slim\App;
 
 return function (App $app, LoggerInterface $logger): void {
+    $app->add(new \Tuupola\Middleware\CorsMiddleware([
+        "origin" => ["*"],
+        "methods" => ["GET", "POST", "PATCH", "DELETE"],
+        "headers.allow" => ["Authorization", "Content-Type", "Accept", "Origin"],
+        "headers.expose" => [],
+        "credentials" => false,
+        "cache" => 0,
+    ]));
     /**
      * The routing middleware should be added earlier than the ErrorMiddleware
      * Otherwise exceptions thrown from it will not be handled by the middleware

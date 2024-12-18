@@ -1,0 +1,196 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    background-color: #fff;
+    color: #121f45;
+    overflow-x: hidden;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+header {
+    background-color: #223971;
+    color: white;
+    padding: 15px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin-right: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #ffc906;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: white;
+}
+
+.signin-btn {
+    background-color: #ffc906;
+    color: #121f45;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.section {
+    padding: 60px 0;
+    text-align: center;
+    background-color: #f9f9f9;
+}
+
+.section h2 {
+    font-size: 2.8rem;
+    margin-bottom: 20px;
+    font-weight: bold;
+    color: #223971;
+}
+
+.section p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+.team-list, .event-list, .driver-list, .car-list, .track-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.team-item, .event-item, .driver-item, .car-item, .track-item {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.team-item:hover, .event-item:hover, .driver-item:hover, .car-item:hover, .track-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.team-item h3, .event-item h3, .driver-item h3, .car-item h3, .track-item h3 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    color: #223971;
+}
+
+.team-item p, .event-item p, .driver-item p, .car-item p, .track-item p {
+    font-size: 1.1rem;
+    margin: 5px 0;
+    color: #121f45;
+}
+
+.team-item strong, .event-item strong, .driver-item strong, .car-item strong, .track-item strong {
+    font-weight: bold;
+}
+
+.team-item .team-headquarters, .team-item .team-principal,
+.event-item .event-status, .event-item .event-date,
+.driver-item .driver-stats, .driver-item .driver-info,
+.track-item .track-length, .track-item .track-continent {
+    margin-top: 10px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #223971;
+}
+
+.search-box {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.search-box:focus {
+    outline: none;
+    border-color: #223971;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.page-btn {
+    padding: 10px 15px;
+    margin: 0 5px;
+    background-color: #223971;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.page-btn:hover {
+    background-color: #3a5a80;
+}
+
+@media (max-width: 768px) {
+    .team-list, .event-list, .driver-list, .car-list, .track-list {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .team-list, .event-list, .driver-list, .car-list, .track-list {
+        grid-template-columns: 1fr;
+    }
+}
+
+footer {
+    background-color: #121f45;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    margin-top: 40px;
+}
+
+footer p {
+    font-size: 1rem;
+}
